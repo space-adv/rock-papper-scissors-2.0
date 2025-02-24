@@ -1,14 +1,14 @@
 
 
-function getComputerChoise() {
-    let computerChoise = Math.floor(Math.random() * 3);
-    console.log(computerChoise);
+function getComputerChoice() {
+    let computerChoice = Math.floor(Math.random() * 3);
+    console.log(computerChoice);
 }
 
 
-function getHumanChoise() {
-    let humanChoise = prompt("Choose your number!");
-    console.log(humanChoise);
+function getHumanChoice() {
+    let humanChoice = prompt("Choose your number!");
+    console.log(humanChoice);
 }
 
 let humanScore = 0;
