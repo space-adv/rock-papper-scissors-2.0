@@ -2,9 +2,9 @@ let humanScore = 0;
 let computerScore = 0;
 let result;
 
-const para = document.querySelector("p");
-const humanScoreDisplay = document.querySelector(".humanScoreDisplay");
-const computerScoreDisplay = document.querySelector(".computerScoreDisplay");
+let para = document.querySelector("p");
+let humanScoreDisplay = document.querySelector(".humanScoreDisplay");
+let computerScoreDisplay = document.querySelector(".computerScoreDisplay");
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
@@ -25,7 +25,6 @@ function getComputerChoice() {
         console.log(humanChoice);
         console.log(computerChoice);
 
-
         if (humanChoice === computerChoice) {
             result = "It's a draw.";
             para.textContent = `It's a tie, you both choose ${computerChoice}`;
@@ -45,19 +44,16 @@ function getComputerChoice() {
         console.log(result);
         console.log(humanScore);
         console.log(computerScore);
-        humanScoreDisplay.textContent = humanScore;
-        computerScoreDisplay.textContent = computerScore;
+        humanScoreDisplay.textContent = `Human Score ${humanScore}`;
+        computerScoreDisplay.textContent = `Computer Score ${computerScore}`;
 
         if (humanScore ===5 || computerScore === 5) {
             rockButton.disabled = true;
             paperButton.disabled = true;
-            scissorsButton.disabled = true;
+            scissorsButton.disabled = true; 
         }
-        
+        ;
     };
-
-     
-    
         const rockButton = document.querySelector("#rock");
         const paperButton = document.querySelector("#paper");
         const scissorsButton = document.querySelector("#scissors");
@@ -73,34 +69,16 @@ function getComputerChoice() {
         scissorsButton.addEventListener("click", () => {
             playRound(getComputerChoice(), "scissors");
         });
+ 
 
-
-
-
-/*function playGame() {
-
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    
-    if (computerScore > humanScore){
-        alert("The computer won.");
-    } else if (computerScore < humanScore) {
-        alert("Congrats you've won!");
-    } else {
-        alert("It's a tie.");
-    }
-}
-playGame(); */
+    const resetButton = document.querySelector(".reset");
+    resetButton.addEventListener("click", () => {
+        humanScore = 0;
+        computerScore = 0;
+        para.textContent = "";
+        humanScoreDisplay.textContent = "";
+        computerScoreDisplay.textContent = "";
+        rockButton.disabled = false;
+        paperButton.disabled = false;
+        scissorsButton.disabled = false
+    });
